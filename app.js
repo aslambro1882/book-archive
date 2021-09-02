@@ -15,7 +15,7 @@ const loadData = () => {
 
     const url = `https://openlibrary.org/search.json?q=${searchText}`;
     // Applying Condition for Empty Data
-    if (searchText == '') {
+    if (searchText === '') {
         window.alert('write a book name');
     }
     else {
@@ -34,7 +34,7 @@ const displayData = data => {
     document.getElementById('total-search').innerText = data.numFound;
 
     // Applying Condition for Miss Match Result
-    if (data.numFound == 0) {
+    if (data.numFound === 0) {
 
         // On Condition Displaying No Result Message here
         document.getElementById('no-result').style.display = 'block';
@@ -48,7 +48,11 @@ const displayData = data => {
 
     data.forEach(book => {
         // Assigning URL For Cover Image
-        const imageUrl = `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
+        const imageUrl = book.cover_i ? `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg` : 'images.jpg';
+        const writerName = book.author_name ? book.author_name[0] : "Unknown Writer";
+        const publisherName = book.publisher ? book.publisher[0] : "Unknown Publisher";
+        const publishYear = book.first_publish_year ? book.first_publish_year : "Unknown Year";
+
         const card = document.createElement('div');
         card.classList.add('col');
         // Adding Inner HTML with Template String and Dynamic Value
@@ -57,11 +61,11 @@ const displayData = data => {
                 <img src="${imageUrl}" class="card-img-top" alt="Not Found">
                 <div class="card-body">
                     <h5 class="card-title text-center">${book.title}</h5>
-                    <small class="card-text fst-italic text-secondary">By ${book.author_name?.find(name => name)}</small>
+                    <small class="card-text fst-italic text-secondary">By ${writerName}</small>
                     <br><br>
-                    <small class="card-text d-block fw-bold">Publisher ${book.publisher?.find(publisher => publisher)}</small>
+                    <small class="card-text d-block fw-bold">Publisher ${publisherName}</small>
                     <br>
-                    <small class="card-text d-block fw-bold">First Published in ${book.first_publish_year} </small>
+                    <small class="card-text d-block fw-bold">First Published in ${publishYear} </small>
                 </div>
             </div>
         `;
