@@ -14,6 +14,7 @@
 
 <body>
     <header>
+        <!-- Navbar here -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
@@ -31,19 +32,24 @@
                         </li>
                     </ul>
                     <div class="d-flex">
+                        <!-- Search Text Input Field Here -->
                         <input id="search-field" class="form-control me-2" type="search" placeholder="Search book"
                             aria-label="Search">
+                        <!-- Search Button Here -->
                         <button onclick="loadData()" class="btn btn-outline-success" type="button"><i
                                 class="fas fa-search"></i></button>
                     </div>
                 </div>
             </div>
         </nav>
+        <!-- Total Founded Result Amount Here -->
         <p id="total-search-found" class="ms-3">About <span id="total-search"></span> results</p>
+        <!-- No Result Found Tag Here -->
         <h1 id="no-result" class="text-center mt-5">No results found</h1>
 
     </header>
     <main>
+        <!-- Preload Spinner Here -->
         <div id="spinner">
             <div class="d-flex justify-content-center align-items-center">
                 <div class="spinner-border" role="status">
@@ -51,12 +57,13 @@
                 <span class="fs-2 ms-2">Loading...</span>
             </div>
         </div>
-
+        <!-- Card Section Here -->
         <div class="container my-5">
             <div id="card-section" class="row row-cols-1 row-cols-md-3 g-4">
             </div>
         </div>
     </main>
+    <!-- Footer Here -->
     <footer id="footer" class="fixed-bottom bg-dark">
         <br>
         <small class="text-center d-block text-white">Developed by <span class="fw-bold text-info">Maruf Bin Solaiman

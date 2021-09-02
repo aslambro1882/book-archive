@@ -1,7 +1,7 @@
 body{
     background-color: #ffe4c423;
 }
-
+/* Toggle Spinner */
 #spinner{
     position: fixed;
     width: 100%;
@@ -19,10 +19,12 @@ footer{
     border-radius: 10px;
     height: 500px;
 }
+/* card image */
 .card img{
     height: 300px;
 }
 
+/* no result message */
 #no-result{
     display: none;
 }
